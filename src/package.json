@@ -1,0 +1,15 @@
+{
+    "name": "slack-service",
+    "license": "MIT",
+    "description": "",
+    "scripts": {
+        "start": "node index",
+        "debug": "node --inspect=0.0.0.0:4312 index",
+        "break": "node --inspect-brk=0.0.0.0:4312 index"
+    },
+    "dependencies": {
+        "express": "4.18.2",
+        "dotenv": "9.0.2",
+        "fs-extra": "11.1.0"
+    }
+}
