@@ -1,0 +1,10 @@
+# this is for test mounting built images on your local dev env. container names should not clash
+# with dev resources
+version: "2"
+services:
+    test:
+        image: shukriadams/simple-slack-service:latest
+        container_name: simple-slack-service-test
+        network_mode: bridge
+        ports:
+        - "4311:4311"

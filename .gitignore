@@ -2,3 +2,6 @@ src/node_modules
 vagrant/virtio/.vagrant
 src/package-lock.json
 src/.env
+build/.clone
+build/.stage
+build/.stage.tar.gz

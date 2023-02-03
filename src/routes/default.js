@@ -2,8 +2,10 @@
 
 module.exports = app =>{
 
-    app.get('/send', async (req, res)=>{
-    })    
+    app.get('/', async (req, res)=>{
+        res.send('simple-slack-service')
+    })  
+
     /**
      * 
      */
