@@ -4,6 +4,7 @@
         const http = require('http'),
             fs = require('fs-extra'),
             Express = require('express'),
+            bodyParser = require('body-parser'),
             routeLoader = require('./lib/routeLoader'),
             settings = require('./lib/settings')
 
@@ -11,6 +12,8 @@
 
         const express = Express()
         express.set('json spaces', 4)
+        express.use(bodyParser.urlencoded({ }))
+        express.use(bodyParser.json())
 
         await routeLoader(express)
         

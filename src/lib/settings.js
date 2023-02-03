@@ -3,7 +3,9 @@ let process = require('process'),
     incomingVars = {},
     settings = {
         port : 4311,
-        dataFolder : './data'
+        dataFolder : './data',
+        secret: null,
+        token: null
     },
     getVar = (name)=>{
         if (process.env[name] === undefined)
@@ -12,33 +14,31 @@ let process = require('process'),
         incomingVars[name] = process.env[name].toString()    
     },
     fromBool = (settingsName, envVarName)=>{
-        if (!incomingVars[envVarName])
-            return
 
         settings[settingsName] = incomingVars[envVarName] === '1' || incomingVars[envVarName].toLowerCase() === 'true'
         console.log(`override variable ${settingsName}`)
     },
-    fromString = (settingsName, envVarName)=>{
-        if (!incomingVars[envVarName])
+    fromString = (settingsName)=>{
+
+        if (!process.env[settingsName])
             return
 
-        settings[settingsName] = incomingVars[envVarName]
+        settings[settingsName] = process.env[settingsName]
         console.log(`override variable ${settingsName}`)
     },
-    fromNumeric = (settingsName, envVarName)=>{
-        if (!incomingVars[envVarName])
+    fromNumeric = (settingsName)=>{
+
+        if (!process.env[settingsName])
             return
 
-        const incoming = settings[settingsName] = parseInt(incomingVars[envVarName])
-        if (incoming === NaN)
-            return
-
-        settings[settingsName] = incoming
+        settings[settingsName] = parseInt(process.env[settingsName])
         console.log(`override variable ${settingsName}`)
     }
 
 dotenv.config()
 
-fromNumeric('port', 'CRASHREPORT_PORT')
+fromNumeric('port')
+fromString('secret')
+fromString('token')
 
 module.exports = settings
