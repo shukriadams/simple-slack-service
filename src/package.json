@@ -11,6 +11,7 @@
         "express": "4.18.2",
         "body-parser": "1.18.3",
         "@slack/bolt": "3.4.0",
+        "winston-wrapper": "https://github.com/shukriadams/winston-wrapper.git#0.1.0",
         "dotenv": "9.0.2",
         "fs-extra": "11.1.0"
     }

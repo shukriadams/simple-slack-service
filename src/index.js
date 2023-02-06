@@ -8,10 +8,14 @@
             routeLoader = require('./lib/routeLoader'),
             settings = require('./lib/settings')
 
-        await fs.ensureDir('./data/logs')
+        await fs.ensureDir(settings.logsFolder)
 
         const express = Express()
         express.set('json spaces', 4)
+        
+        if (settings.trustProxy)
+            express.set('trust proxy', true)
+
         express.use(bodyParser.urlencoded({ }))
         express.use(bodyParser.json())
 

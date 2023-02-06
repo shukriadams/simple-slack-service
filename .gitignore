@@ -5,3 +5,4 @@ src/.env
 build/.clone
 build/.stage
 build/.stage.tar.gz
+src/data
